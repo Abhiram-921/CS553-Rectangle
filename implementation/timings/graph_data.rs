@@ -10,19 +10,24 @@ const RC: [u16; 25] = [0x01, 0x02, 0x04, 0x09, 0x12, 0x05, 0x0B, 0x16, 0x0C, 0x1
 fn main() {
     // third parameter = 0 for bit slice and 1 for normal lookup version
     use std::time::Instant;
+    for j in 1..20 {
+        let mut now = Instant::now();
+        for i in 0..((j)*100) {
+            cipher(!0, !0, 0);
+        }
+        let elapsed = now.elapsed();
+        print!(" {:.2}", elapsed.as_secs_f64()*1000.);
+    }
+    println!("\n\n");
+    for j in 1..20 {
+        let mut now = Instant::now();
+        for i in 0..((j)*100) {
+            cipher(!0, !0, 1);
+        }
+        let elapsed = now.elapsed();
+        print!(" {:.2}", elapsed.as_secs_f64()*1000.);
+    }
 
-    let mut now = Instant::now();
-    for i in 1..1000 {
-        cipher(!0, !0, 0);
-    }
-    let elapsed = now.elapsed();
-    now = Instant::now();
-    println!("Elapsed: {:.2} ms", elapsed.as_secs_f64()*1000.);
-    for i in 1..1000 {
-        cipher(!0, !0, 1);
-    }
-    let elapsed = now.elapsed();
-    println!("Elapsed: {:.2} ms", elapsed.as_secs_f64()*1000.);
 }
 
 fn sbox(input: u16) -> u16 {
