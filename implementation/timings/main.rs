@@ -1,6 +1,7 @@
 /*
  * RECTANGLE
- *
+ * Compiling: $rustc main.rs
+ * Running: $ ./main
  */
 
 use std::convert::TryInto;
