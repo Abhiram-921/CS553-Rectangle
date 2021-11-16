@@ -1,2 +1,2 @@
-# CS553-Rectangle
+# Rectangle
 CS553 Term paper on RECTANGLE cipher
